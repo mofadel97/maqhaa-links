@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مقهى الأهلاوية</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #0A0A0A;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .logo { font-size: 64px; margin-bottom: 16px; }
+    h1 { font-size: 24px; color: #CC0000; margin-bottom: 8px; }
+    p  { color: #aaa; font-size: 15px; text-align: center; margin-bottom: 32px; }
+    .btn {
+      display: inline-block;
+      background: #CC0000;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .hint { color: #555; font-size: 12px; margin-top: 24px; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="logo">☕</div>
+  <h1>مقهى الأهلاوية</h1>
+  <p>جاري فتح التطبيق...<br/>إذا لم يفتح تلقائياً اضغط الزر أدناه</p>
+  <a class="btn" id="openBtn" href="#">افتح التطبيق</a>
+  <p class="hint">إذا لم يكن التطبيق مثبتاً، حمّله أولاً ثم افتح الرابط مجدداً</p>
+
+  <script>
+    // استخراج المسار الحالي لتحويله لرابط مخصص
+    // مثال: /maqhaa-links/post/123 → maqhaa://app/post/123
+    var path = window.location.pathname;
+
+    // إزالة /maqhaa-links من بداية المسار
+    var cleaned = path.replace('/maqhaa-links', '');
+    if (!cleaned || cleaned === '/') cleaned = '/';
+
+    // بناء الرابط المخصص
+    var appScheme = 'maqhaa://app' + cleaned;
+
+    // تحديث زر الفتح
+    document.getElementById('openBtn').href = appScheme;
+
+    // محاولة الفتح التلقائي
+    setTimeout(function () {
+      window.location.href = appScheme;
+    }, 800);
+  </script>
+</body>
+</html>
