@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.maqhaa_ahlaweya",
+      "sha256_cert_fingerprints": [
+        "56:8F:7F:B9:19:B0:55:F0:91:EE:12:D3:99:27:84:07:36:DD:F1:D6:60:BB:7D:7D:C0:AE:AD:A7:EB:C7:EC:82"
+      ]
+    }
+  }
+]
